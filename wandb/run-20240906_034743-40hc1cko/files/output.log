@@ -1,0 +1,72 @@
+/app/model.py:143: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  grad_scaler = torch.cuda.amp.GradScaler(enabled=amp)
+Epoch 1/5:   0%|          | 0/51 [00:00<?, ?img/s]
+[2024-09-06 03:47:45,577] [INFO] [root::train_net::128] Starting training:
+        Epochs:          5
+        Batch size:      1
+        Learning rate:   1e-05
+        Training size:   51
+        Validation size: 5
+        Checkpoints:     True
+        Device:          cpu
+        Images scaling:  0.5
+Epoch 1/5:   0%|          | 0/51 [00:00<?, ?img/s]/app/model.py:164: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=amp):
+Epoch 1/5:  10%|▉         | 5/51 [00:05<00:22,  2.01img/s, loss (batch)=1.02]
+Validation round:   0%|          | 0/5 [00:00<?, ?batch/s]
+[2024-09-06 03:47:55,716] [INFO] [root::train_net::199] Validation Dice score: 0.10197758674621582
+
+[2024-09-06 03:47:55,854] [DEBUG] [urllib3.connectionpool::_new_conn::1051] Starting new HTTPS connection (1): api.wandb.ai:443
+[2024-09-06 03:47:56,734] [DEBUG] [urllib3.connectionpool::_make_request::546] https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+Epoch 1/5:  10%|▉         | 5/51 [00:05<00:22,  2.01img/s, loss (b/app/model.py:164: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=amp):
+Epoch 1/5:  20%|█▉        | 10/51 [00:12<00:26,  1.56img/s, loss (batch)=0.788]
+Validation round:   0%|          | 0/5 [00:00<?, ?batch/s]
+
+Validation round:  20%|██        | 1/5 [00:04<00:17,  4.42s/batch]
+
+Validation round:   0%|          | 0/5 [00:00<?, ?batch/s]
+
+Epoch 1/5:  49%|████▉     | 25/51 [00:29<00:14,  1.80img/s, loss (batch)=0.638]
+Validation round:   0%|          | 0/5 [00:00<?, ?batch/s]
+
+Epoch 1/5:  59%|█████▉    | 30/51 [00:34<00:11,  1.81img/s, loss (batch)=0.648]
+Validation round:   0%|          | 0/5 [00:00<?, ?batch/s]
+
+[2024-09-06 03:48:25,298] [INFO] [root::train_net::199] Validation Dice score: 3.3840172886101527e-09
+Validation round:   0%|          | 0/5 [00:00<?, ?batch/s]
+[2024-09-06 03:48:30,967] [INFO] [root::train_net::199] Validation Dice score: 3.3840172886101527e-09
+
+Validation round:  20%|██        | 1/5 [00:04<00:17,  4.43s/batch]
+[2024-09-06 03:48:42,286] [INFO] [root::train_net::199] Validation Dice score: 0.017756786197423935
+
+Validation round:   0%|          | 0/5 [00:00<?, ?batch/s]
+[2024-09-06 03:48:44,582] [DEBUG] [urllib3.connectionpool::_make_request::546] https://o151352.ingest.sentry.io:443 "POST /api/4504800232407040/envelope/ HTTP/11" 200 0
+
+[2024-09-06 03:48:48,019] [INFO] [root::train_net::199] Validation Dice score: 0.3845058083534241
+[2024-09-06 03:48:48,427] [ERROR] [label_studio_ml.api::log_exception::1414] Exception on /webhook [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/label_studio_ml/api.py", line 126, in webhook
+    model.fit(event, data)
+  File "/app/model.py", line 430, in fit
+    train_net(images,masks,net,device)
+  File "/app/model.py", line 214, in train_net
+    Path(dir_checkpoint).mkdir(parents=True, exist_ok=True)
+         ^^^^^^^^^^^^^^
+NameError: name 'dir_checkpoint' is not defined. Did you mean: 'save_checkpoint'?
+[2024-09-06 03:48:48,429] [DEBUG] [label_studio_ml.api::log_response_info::185] Response status: 500 INTERNAL SERVER ERROR
+[2024-09-06 03:48:48,430] [DEBUG] [label_studio_ml.api::log_response_info::186] Response headers: Content-Type: text/html; charset=utf-8
+Content-Length: 265
+

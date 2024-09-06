@@ -1,0 +1,52 @@
+[2024-09-06 03:38:26,723] [INFO] [root::train_net::120] Starting training:
+        Epochs:          5
+        Batch size:      1
+        Learning rate:   1e-05
+        Training size:   51
+        Validation size: 5
+        Checkpoints:     True
+        Device:          cpu
+        Images scaling:  0.5
+        Mixed Precision: False
+/app/model.py:135: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  grad_scaler = torch.cuda.amp.GradScaler(enabled=amp)
+Epoch 1/5:   0%|          | 0/51 [00:00<?, ?img/s]/app/model.py:156: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=amp):
+Epoch 1/5:   0%|          | 0/51 [00:04<?, ?img/s]
+[2024-09-06 03:38:31,480] [ERROR] [label_studio_ml.api::log_exception::1414] Exception on /webhook [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/label_studio_ml/api.py", line 126, in webhook
+    model.fit(event, data)
+  File "/app/model.py", line 422, in fit
+    train_net(images,masks,net,device)
+  File "/app/model.py", line 158, in train_net
+    loss = criterion(masks_pred, true_masks) \
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/torch/nn/modules/loss.py", line 1188, in forward
+    return F.cross_entropy(input, target, weight=self.weight,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/torch/nn/functional.py", line 3104, in cross_entropy
+    return torch._C._nn.cross_entropy_loss(input, target, weight, _Reduction.get_enum(reduction), ignore_index, label_smoothing)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: only batches of spatial targets supported (3D tensors) but got targets of dimension: 4
+[2024-09-06 03:38:31,482] [DEBUG] [label_studio_ml.api::log_response_info::185] Response status: 500 INTERNAL SERVER ERROR
+[2024-09-06 03:38:31,482] [DEBUG] [label_studio_ml.api::log_response_info::186] Response headers: Content-Type: text/html; charset=utf-8
+Content-Length: 265

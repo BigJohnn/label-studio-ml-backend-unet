@@ -12,6 +12,7 @@ ENV PYTHONUNBUFFERED=1 \
     PIP_CACHE_DIR=/.cache \
     WORKERS=1 \
     THREADS=8
+ENV PIP_INDEX_URL https://pypi.tuna.tsinghua.edu.cn/simple
 
 # Update the base OS
 RUN --mount=type=cache,target="/var/cache/apt",sharing=locked \
@@ -22,6 +23,9 @@ RUN --mount=type=cache,target="/var/cache/apt",sharing=locked \
     apt install --no-install-recommends -y  \
         git; \
     apt-get autoremove -y
+
+COPY ./unet .
+COPY ./utils .
 
 # install base requirements
 COPY requirements-base.txt .

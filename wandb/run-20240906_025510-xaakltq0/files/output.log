@@ -1,0 +1,40 @@
+[2024-09-06 02:55:11,896] [INFO] [root::train_net::91] Starting training:
+        Epochs:          5
+        Batch size:      1
+        Learning rate:   1e-05
+        Training size:   51
+        Validation size: 5
+        Checkpoints:     True
+        Device:          cpu
+        Images scaling:  0.5
+        Mixed Precision: False
+/app/model.py:106: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  grad_scaler = torch.cuda.amp.GradScaler(enabled=amp)
+Epoch 1/5:   0%|          | 0/51 [00:00<?, ?img/s]/app/model.py:127: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=amp):
+[2024-09-06 02:55:16,602] [ERROR] [label_studio_ml.api::log_exception::1414] Exception on /webhook [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/label_studio_ml/api.py", line 126, in webhook
+    model.fit(event, data)
+  File "/app/model.py", line 393, in fit
+    train_net(images,masks,net,device)
+  File "/app/model.py", line 130, in train_net
+    + dice_loss(F.softmax(masks_pred, dim=1).float(),
+      ^^^^^^^^^
+NameError: name 'dice_loss' is not defined
+[2024-09-06 02:55:16,605] [DEBUG] [label_studio_ml.api::log_response_info::185] Response status: 500 INTERNAL SERVER ERROR
+[2024-09-06 02:55:16,605] [DEBUG] [label_studio_ml.api::log_response_info::186] Response headers: Content-Type: text/html; charset=utf-8
+Content-Length: 265
+[2024-09-06 02:55:16,605] [DEBUG] [label_studio_ml.api::log_response_info::187] Response body: b'<!doctype html>\n<html lang=en>\n<title>500 Internal Server Error</title>\n<h1>Internal Server Error</h1>\n<p>The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.</p>\n'

@@ -1,0 +1,68 @@
+[2024-09-06 02:50:20,599] [INFO] [root::train_net::91] Starting training:
+        Epochs:          5
+        Batch size:      1
+        Learning rate:   1e-05
+        Training size:   51
+        Validation size: 5
+        Checkpoints:     True
+        Device:          cpu
+        Images scaling:  0.5
+        Mixed Precision: False
+/app/model.py:106: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  grad_scaler = torch.cuda.amp.GradScaler(enabled=amp)
+Epoch 1/5:   0%|          | 0/51 [00:00<?, ?img/s]
+[2024-09-06 02:50:24,787] [ERROR] [label_studio_ml.api::log_exception::1414] Exception on /webhook [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/label_studio_ml/api.py", line 126, in webhook
+    model.fit(event, data)
+  File "/app/model.py", line 393, in fit
+    train_net(images,masks,net,device)
+  File "/app/model.py", line 115, in train_net
+    for batch in train_loader:
+                 ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 630, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 1344, in _next_data
+    return self._process_data(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 1370, in _process_data
+    data.reraise()
+  File "/usr/local/lib/python3.12/site-packages/torch/_utils.py", line 706, in reraise
+    raise exception
+TypeError: Caught TypeError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/torch/utils/data/_utils/worker.py", line 309, in _worker_loop
+    data = fetcher.fetch(index)  # type: ignore[possibly-undefined]
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/torch/utils/data/_utils/fetch.py", line 50, in fetch
+    data = self.dataset.__getitems__(possibly_batched_index)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/torch/utils/data/dataset.py", line 420, in __getitems__
+    return [self.dataset[self.indices[idx]] for idx in indices]
+            ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/app/utils/data_loading.py", line 79, in __getitem__
+    mask = self.preprocess(mask, self.scale, is_mask=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/utils/data_loading.py", line 37, in preprocess
+    w, h = pil_img.size
+    ^^^^
+TypeError: cannot unpack non-iterable int object
+[2024-09-06 02:50:24,789] [DEBUG] [label_studio_ml.api::log_response_info::185] Response status: 500 INTERNAL SERVER ERROR
+[2024-09-06 02:50:24,789] [DEBUG] [label_studio_ml.api::log_response_info::186] Response headers: Content-Type: text/html; charset=utf-8
+Content-Length: 265
+
+Epoch 1/5:   0%|          | 0/51 [00:04<?, ?img/s]
+[2024-09-06 02:51:18,808] [DEBUG] [urllib3.connectionpool::_new_conn::1051] Starting new HTTPS connection (1): o151352.ingest.sentry.io:443

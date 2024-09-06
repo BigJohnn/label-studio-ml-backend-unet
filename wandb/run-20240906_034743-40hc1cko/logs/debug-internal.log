@@ -1,0 +1,536 @@
+2024-09-06 03:47:43,749 INFO    StreamThr :52 [internal.py:wandb_internal():85] W&B internal server running at pid: 52, started at: 2024-09-06 03:47:43.749240
+2024-09-06 03:47:43,750 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: status
+2024-09-06 03:47:43,753 INFO    WriterThread:52 [datastore.py:open_for_write():87] open: /app/wandb/run-20240906_034743-40hc1cko/run-40hc1cko.wandb
+2024-09-06 03:47:43,754 DEBUG   SenderThread:52 [sender.py:send():391] send: header
+2024-09-06 03:47:43,754 DEBUG   SenderThread:52 [sender.py:send():391] send: run
+2024-09-06 03:47:43,756 INFO    SenderThread:52 [sender.py:_setup_resume():761] checking resume status for None/U-Net/40hc1cko
+2024-09-06 03:47:45,453 INFO    SenderThread:52 [dir_watcher.py:__init__():211] watching files in: /app/wandb/run-20240906_034743-40hc1cko/files
+2024-09-06 03:47:45,454 INFO    SenderThread:52 [sender.py:_start_run_threads():1200] run started: 40hc1cko with start time 1725594463.749243
+2024-09-06 03:47:45,466 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: run_start
+2024-09-06 03:47:45,466 DEBUG   HandlerThread:52 [system_info.py:__init__():26] System info init
+2024-09-06 03:47:45,466 DEBUG   HandlerThread:52 [system_info.py:__init__():41] System info init done
+2024-09-06 03:47:45,467 INFO    HandlerThread:52 [system_monitor.py:start():194] Starting system monitor
+2024-09-06 03:47:45,467 INFO    SystemMonitor:52 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2024-09-06 03:47:45,467 INFO    HandlerThread:52 [system_monitor.py:probe():214] Collecting system info
+2024-09-06 03:47:45,467 INFO    SystemMonitor:52 [interfaces.py:start():188] Started cpu monitoring
+2024-09-06 03:47:45,467 INFO    SystemMonitor:52 [interfaces.py:start():188] Started disk monitoring
+2024-09-06 03:47:45,468 INFO    SystemMonitor:52 [interfaces.py:start():188] Started memory monitoring
+2024-09-06 03:47:45,468 INFO    SystemMonitor:52 [interfaces.py:start():188] Started network monitoring
+2024-09-06 03:47:45,505 DEBUG   HandlerThread:52 [system_info.py:probe():152] Probing system
+2024-09-06 03:47:45,507 DEBUG   HandlerThread:52 [gitlib.py:_init_repo():56] git repository is invalid
+2024-09-06 03:47:45,507 DEBUG   HandlerThread:52 [system_info.py:probe():200] Probing system done
+2024-09-06 03:47:45,507 DEBUG   HandlerThread:52 [system_monitor.py:probe():223] {'os': 'Linux-5.15.0-119-generic-x86_64-with-glibc2.36', 'python': '3.12.5', 'heartbeatAt': '2024-09-06T03:47:45.505673', 'startedAt': '2024-09-06T03:47:43.745396', 'docker': None, 'cuda': None, 'args': ('--preload', '--bind', ':9090', '--workers', '1', '--threads', '8', '--timeout', '0', '_wsgi:app'), 'state': 'running', 'program': '/usr/local/bin/gunicorn', 'codePathLocal': None, 'host': 'b2adc7bc433d', 'username': 'root', 'executable': '/usr/local/bin/python', 'cpu_count': 16, 'cpu_count_logical': 24, 'cpu_freq': {'current': 3385.724208333333, 'min': 800.0, 'max': 4950.0}, 'cpu_freq_per_core': [{'current': 3400.0, 'min': 800.0, 'max': 5300.0}, {'current': 3400.0, 'min': 800.0, 'max': 5300.0}, {'current': 1099.998, 'min': 800.0, 'max': 5300.0}, {'current': 3400.0, 'min': 800.0, 'max': 5300.0}, {'current': 3400.0, 'min': 800.0, 'max': 5300.0}, {'current': 3400.0, 'min': 800.0, 'max': 5300.0}, {'current': 3400.0, 'min': 800.0, 'max': 5300.0}, {'current': 3400.0, 'min': 800.0, 'max': 5300.0}, {'current': 3400.0, 'min': 800.0, 'max': 5400.0}, {'current': 3400.0, 'min': 800.0, 'max': 5400.0}, {'current': 3400.0, 'min': 800.0, 'max': 5400.0}, {'current': 3497.132, 'min': 800.0, 'max': 5400.0}, {'current': 3400.0, 'min': 800.0, 'max': 5300.0}, {'current': 3400.0, 'min': 800.0, 'max': 5300.0}, {'current': 3400.0, 'min': 800.0, 'max': 5300.0}, {'current': 3400.0, 'min': 800.0, 'max': 5300.0}, {'current': 3400.0, 'min': 800.0, 'max': 4200.0}, {'current': 3400.0, 'min': 800.0, 'max': 4200.0}, {'current': 3400.0, 'min': 800.0, 'max': 4200.0}, {'current': 3400.0, 'min': 800.0, 'max': 4200.0}, {'current': 3400.0, 'min': 800.0, 'max': 4200.0}, {'current': 3400.0, 'min': 800.0, 'max': 4200.0}, {'current': 3400.0, 'min': 800.0, 'max': 4200.0}, {'current': 3400.0, 'min': 800.0, 'max': 4200.0}], 'disk': {'/': {'total': 250.92291641235352, 'used': 228.0555763244629}}, 'memory': {'total': 62.628883361816406}}
+2024-09-06 03:47:45,507 INFO    HandlerThread:52 [system_monitor.py:probe():224] Finished collecting system info
+2024-09-06 03:47:45,507 INFO    HandlerThread:52 [system_monitor.py:probe():227] Publishing system info
+2024-09-06 03:47:45,508 INFO    HandlerThread:52 [system_monitor.py:probe():229] Finished publishing system info
+2024-09-06 03:47:45,510 DEBUG   SenderThread:52 [sender.py:send():391] send: files
+2024-09-06 03:47:45,510 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-metadata.json with policy now
+2024-09-06 03:47:45,575 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: python_packages
+2024-09-06 03:47:45,575 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: stop_status
+2024-09-06 03:47:45,575 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: python_packages
+2024-09-06 03:47:45,576 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: stop_status
+2024-09-06 03:47:45,576 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: internal_messages
+2024-09-06 03:47:46,454 INFO    Thread-12 :52 [dir_watcher.py:_on_file_created():271] file/dir created: /app/wandb/run-20240906_034743-40hc1cko/files/wandb-metadata.json
+2024-09-06 03:47:46,454 INFO    Thread-12 :52 [dir_watcher.py:_on_file_created():271] file/dir created: /app/wandb/run-20240906_034743-40hc1cko/files/requirements.txt
+2024-09-06 03:47:46,565 DEBUG   SenderThread:52 [sender.py:send():391] send: telemetry
+2024-09-06 03:47:46,565 DEBUG   SenderThread:52 [sender.py:send():391] send: config
+2024-09-06 03:47:47,410 INFO    wandb-upload_0:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/8z2veg32-wandb-metadata.json
+2024-09-06 03:47:47,453 INFO    Thread-12 :52 [dir_watcher.py:_on_file_created():271] file/dir created: /app/wandb/run-20240906_034743-40hc1cko/files/output.log
+2024-09-06 03:47:49,454 INFO    Thread-12 :52 [dir_watcher.py:_on_file_modified():288] file/dir modified: /app/wandb/run-20240906_034743-40hc1cko/files/output.log
+2024-09-06 03:47:49,567 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: status_report
+2024-09-06 03:47:50,189 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:47:50,189 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:47:50,189 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:47:50,190 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:47:50,297 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:47:50,297 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:47:50,297 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:47:50,298 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:47:50,405 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:47:50,406 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:47:50,406 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:47:50,406 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:47:50,454 INFO    Thread-12 :52 [dir_watcher.py:_on_file_created():271] file/dir created: /app/wandb/run-20240906_034743-40hc1cko/files/wandb-summary.json
+2024-09-06 03:47:50,511 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:47:50,512 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:47:50,512 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:47:50,512 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:47:50,663 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:47:50,663 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:47:50,664 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:47:50,664 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:47:51,455 INFO    Thread-12 :52 [dir_watcher.py:_on_file_modified():288] file/dir modified: /app/wandb/run-20240906_034743-40hc1cko/files/output.log
+2024-09-06 03:47:51,455 INFO    Thread-12 :52 [dir_watcher.py:_on_file_modified():288] file/dir modified: /app/wandb/run-20240906_034743-40hc1cko/files/wandb-summary.json
+2024-09-06 03:47:53,455 INFO    Thread-12 :52 [dir_watcher.py:_on_file_modified():288] file/dir modified: /app/wandb/run-20240906_034743-40hc1cko/files/output.log
+2024-09-06 03:47:54,926 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: status_report
+2024-09-06 03:47:55,576 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: internal_messages
+2024-09-06 03:47:57,066 DEBUG   SenderThread:52 [sender.py:send():391] send: files
+2024-09-06 03:47:57,067 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file media/images/images_5_85402f8b1e44601be460.png with policy now
+2024-09-06 03:47:57,071 DEBUG   SenderThread:52 [sender.py:send():391] send: files
+2024-09-06 03:47:57,071 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file media/images/true_5_175534902916c39050fc.png with policy now
+2024-09-06 03:47:57,073 DEBUG   SenderThread:52 [sender.py:send():391] send: files
+2024-09-06 03:47:57,073 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file media/images/pred_5_69d2be982a99974d3ef4.png with policy now
+2024-09-06 03:47:57,083 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:47:57,112 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:47:57,124 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:47:57,137 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:47:57,190 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:47:57,191 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:47:57,191 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:47:57,198 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:47:57,297 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:47:57,297 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:47:57,297 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:47:57,305 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:47:57,402 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:47:57,402 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:47:57,402 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:47:57,412 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:47:57,456 INFO    Thread-12 :52 [dir_watcher.py:_on_file_modified():288] file/dir modified: /app/wandb/run-20240906_034743-40hc1cko/files/output.log
+2024-09-06 03:47:57,457 INFO    Thread-12 :52 [dir_watcher.py:_on_file_modified():288] file/dir modified: /app/wandb/run-20240906_034743-40hc1cko/files/wandb-summary.json
+2024-09-06 03:47:57,457 INFO    Thread-12 :52 [dir_watcher.py:_on_file_created():271] file/dir created: /app/wandb/run-20240906_034743-40hc1cko/files/media/images/pred_5_69d2be982a99974d3ef4.png
+2024-09-06 03:47:57,457 INFO    Thread-12 :52 [dir_watcher.py:_on_file_created():271] file/dir created: /app/wandb/run-20240906_034743-40hc1cko/files/media/images/true_5_175534902916c39050fc.png
+2024-09-06 03:47:57,457 INFO    Thread-12 :52 [dir_watcher.py:_on_file_created():271] file/dir created: /app/wandb/run-20240906_034743-40hc1cko/files/media/images/images_5_85402f8b1e44601be460.png
+2024-09-06 03:47:57,457 INFO    Thread-12 :52 [dir_watcher.py:_on_file_created():271] file/dir created: /app/wandb/run-20240906_034743-40hc1cko/files/media
+2024-09-06 03:47:57,457 INFO    Thread-12 :52 [dir_watcher.py:_on_file_created():271] file/dir created: /app/wandb/run-20240906_034743-40hc1cko/files/media/images
+2024-09-06 03:47:57,509 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:47:57,509 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:47:57,510 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:47:57,517 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:47:57,615 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:47:57,616 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:47:57,616 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:47:57,622 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:47:57,822 INFO    wandb-upload_1:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/g7rhj10e-media/images/true_5_175534902916c39050fc.png
+2024-09-06 03:47:58,382 INFO    wandb-upload_2:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/ykran0yz-media/images/pred_5_69d2be982a99974d3ef4.png
+2024-09-06 03:47:58,457 INFO    Thread-12 :52 [dir_watcher.py:_on_file_modified():288] file/dir modified: /app/wandb/run-20240906_034743-40hc1cko/files/wandb-summary.json
+2024-09-06 03:47:59,189 INFO    wandb-upload_1:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/97y34e41-media/images/true_5_175534902916c39050fc.png
+2024-09-06 03:47:59,457 INFO    Thread-12 :52 [dir_watcher.py:_on_file_modified():288] file/dir modified: /app/wandb/run-20240906_034743-40hc1cko/files/output.log
+2024-09-06 03:47:59,526 INFO    wandb-upload_0:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/p7et945j-media/images/images_5_85402f8b1e44601be460.png
+2024-09-06 03:47:59,929 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: status_report
+2024-09-06 03:48:00,389 INFO    wandb-upload_2:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/esyrzejx-media/images/pred_5_69d2be982a99974d3ef4.png
+2024-09-06 03:48:00,575 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: stop_status
+2024-09-06 03:48:00,576 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: stop_status
+2024-09-06 03:48:02,728 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:48:02,836 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:48:02,942 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:48:03,049 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:48:03,155 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:48:03,262 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:48:03,458 INFO    Thread-12 :52 [dir_watcher.py:_on_file_created():271] file/dir created: /app/wandb/run-20240906_034743-40hc1cko/files/media/images/pred_11_3f50bce4c29dea1b7605.png
+2024-09-06 03:48:03,458 INFO    Thread-12 :52 [dir_watcher.py:_on_file_created():271] file/dir created: /app/wandb/run-20240906_034743-40hc1cko/files/media/images/images_11_c7d342c240a3f3093afc.png
+2024-09-06 03:48:03,458 INFO    Thread-12 :52 [dir_watcher.py:_on_file_created():271] file/dir created: /app/wandb/run-20240906_034743-40hc1cko/files/media/images/true_11_a1e25a0defede42a055e.png
+2024-09-06 03:48:03,458 INFO    Thread-12 :52 [dir_watcher.py:_on_file_modified():288] file/dir modified: /app/wandb/run-20240906_034743-40hc1cko/files/media/images
+2024-09-06 03:48:05,576 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: internal_messages
+2024-09-06 03:48:05,783 INFO    wandb-upload_2:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/6l9wox6c-media/images/pred_11_3f50bce4c29dea1b7605.png
+2024-09-06 03:48:05,799 INFO    wandb-upload_3:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/t5uax33s-media/images/true_11_a1e25a0defede42a055e.png
+2024-09-06 03:48:06,096 DEBUG   SenderThread:52 [sender.py:send():391] send: files
+2024-09-06 03:48:06,096 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: status_report
+2024-09-06 03:48:06,097 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file media/images/images_11_c7d342c240a3f3093afc.png with policy now
+2024-09-06 03:48:06,097 DEBUG   SenderThread:52 [sender.py:send():391] send: files
+2024-09-06 03:48:06,097 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file media/images/true_11_a1e25a0defede42a055e.png with policy now
+2024-09-06 03:48:06,097 DEBUG   SenderThread:52 [sender.py:send():391] send: files
+2024-09-06 03:48:06,097 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file media/images/pred_11_3f50bce4c29dea1b7605.png with policy now
+2024-09-06 03:48:06,097 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:48:06,105 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:48:06,114 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:48:06,114 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:48:06,114 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:48:06,121 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:48:06,121 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:48:06,121 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:48:06,127 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:48:06,128 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:48:06,128 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:48:06,133 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:48:06,133 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:48:06,133 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:48:06,139 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:48:06,139 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:48:06,139 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:48:06,145 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:48:06,459 INFO    Thread-12 :52 [dir_watcher.py:_on_file_modified():288] file/dir modified: /app/wandb/run-20240906_034743-40hc1cko/files/wandb-summary.json
+2024-09-06 03:48:06,999 INFO    wandb-upload_3:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/3qe2bilt-media/images/pred_11_3f50bce4c29dea1b7605.png
+2024-09-06 03:48:07,006 INFO    wandb-upload_2:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/9u3xga1q-media/images/true_11_a1e25a0defede42a055e.png
+2024-09-06 03:48:07,508 INFO    wandb-upload_0:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/kcth12n9-media/images/images_5_85402f8b1e44601be460.png
+2024-09-06 03:48:08,357 DEBUG   SenderThread:52 [sender.py:send():391] send: files
+2024-09-06 03:48:08,357 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file media/images/images_17_df94237a45a081a33fa0.png with policy now
+2024-09-06 03:48:08,360 DEBUG   SenderThread:52 [sender.py:send():391] send: files
+2024-09-06 03:48:08,360 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file media/images/true_17_b71ce820b4e775bfe185.png with policy now
+2024-09-06 03:48:08,363 DEBUG   SenderThread:52 [sender.py:send():391] send: files
+2024-09-06 03:48:08,363 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file media/images/pred_17_86603db47cc09b34e58b.png with policy now
+2024-09-06 03:48:08,370 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:48:08,414 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:48:08,430 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:48:08,450 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:48:08,460 INFO    Thread-12 :52 [dir_watcher.py:_on_file_modified():288] file/dir modified: /app/wandb/run-20240906_034743-40hc1cko/files/wandb-summary.json
+2024-09-06 03:48:08,460 INFO    Thread-12 :52 [dir_watcher.py:_on_file_created():271] file/dir created: /app/wandb/run-20240906_034743-40hc1cko/files/media/images/pred_17_86603db47cc09b34e58b.png
+2024-09-06 03:48:08,460 INFO    Thread-12 :52 [dir_watcher.py:_on_file_created():271] file/dir created: /app/wandb/run-20240906_034743-40hc1cko/files/media/images/true_17_b71ce820b4e775bfe185.png
+2024-09-06 03:48:08,460 INFO    Thread-12 :52 [dir_watcher.py:_on_file_created():271] file/dir created: /app/wandb/run-20240906_034743-40hc1cko/files/media/images/images_17_df94237a45a081a33fa0.png
+2024-09-06 03:48:08,461 INFO    Thread-12 :52 [dir_watcher.py:_on_file_modified():288] file/dir modified: /app/wandb/run-20240906_034743-40hc1cko/files/media/images
+2024-09-06 03:48:08,481 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:48:08,481 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:48:08,482 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:48:08,489 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:48:08,539 INFO    wandb-upload_1:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/ulwxdifv-media/images/images_11_c7d342c240a3f3093afc.png
+2024-09-06 03:48:08,588 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:48:08,589 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:48:08,589 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:48:08,597 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:48:08,697 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:48:08,697 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:48:08,697 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:48:08,705 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:48:08,804 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:48:08,805 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:48:08,805 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:48:08,812 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:48:08,921 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:48:08,922 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:48:08,922 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:48:08,929 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:48:09,156 INFO    wandb-upload_3:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/2xslrwte-media/images/images_17_df94237a45a081a33fa0.png
+2024-09-06 03:48:09,164 INFO    wandb-upload_0:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/d7cv4g93-media/images/true_17_b71ce820b4e775bfe185.png
+2024-09-06 03:48:09,170 INFO    wandb-upload_2:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/s8ua4r5r-media/images/pred_17_86603db47cc09b34e58b.png
+2024-09-06 03:48:09,410 INFO    wandb-upload_1:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/h3uttmle-media/images/images_11_c7d342c240a3f3093afc.png
+2024-09-06 03:48:09,460 INFO    Thread-12 :52 [dir_watcher.py:_on_file_modified():288] file/dir modified: /app/wandb/run-20240906_034743-40hc1cko/files/output.log
+2024-09-06 03:48:09,460 INFO    Thread-12 :52 [dir_watcher.py:_on_file_modified():288] file/dir modified: /app/wandb/run-20240906_034743-40hc1cko/files/wandb-summary.json
+2024-09-06 03:48:10,016 INFO    wandb-upload_3:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/63ibob4d-media/images/true_17_b71ce820b4e775bfe185.png
+2024-09-06 03:48:10,269 INFO    wandb-upload_2:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/c870m8aa-media/images/pred_17_86603db47cc09b34e58b.png
+2024-09-06 03:48:10,443 INFO    wandb-upload_0:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/r9n1uci6-media/images/images_17_df94237a45a081a33fa0.png
+2024-09-06 03:48:11,460 INFO    Thread-12 :52 [dir_watcher.py:_on_file_modified():288] file/dir modified: /app/wandb/run-20240906_034743-40hc1cko/files/output.log
+2024-09-06 03:48:11,577 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: status_report
+2024-09-06 03:48:14,022 DEBUG   SenderThread:52 [sender.py:send():391] send: files
+2024-09-06 03:48:14,022 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file media/images/images_23_a2b9007fe0b4893af6b5.png with policy now
+2024-09-06 03:48:14,024 DEBUG   SenderThread:52 [sender.py:send():391] send: files
+2024-09-06 03:48:14,024 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file media/images/true_23_2cb10351509c28ca4bcd.png with policy now
+2024-09-06 03:48:14,025 DEBUG   SenderThread:52 [sender.py:send():391] send: files
+2024-09-06 03:48:14,025 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file media/images/pred_23_ea20824fad79a3743d37.png with policy now
+2024-09-06 03:48:14,032 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:48:14,064 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:48:14,075 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:48:14,093 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:48:14,147 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:48:14,147 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:48:14,147 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:48:14,156 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:48:14,259 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:48:14,259 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:48:14,259 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:48:14,267 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:48:14,374 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:48:14,374 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:48:14,375 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:48:14,381 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:48:14,462 INFO    Thread-12 :52 [dir_watcher.py:_on_file_modified():288] file/dir modified: /app/wandb/run-20240906_034743-40hc1cko/files/wandb-summary.json
+2024-09-06 03:48:14,464 INFO    Thread-12 :52 [dir_watcher.py:_on_file_created():271] file/dir created: /app/wandb/run-20240906_034743-40hc1cko/files/media/images/true_23_2cb10351509c28ca4bcd.png
+2024-09-06 03:48:14,465 INFO    Thread-12 :52 [dir_watcher.py:_on_file_created():271] file/dir created: /app/wandb/run-20240906_034743-40hc1cko/files/media/images/pred_23_ea20824fad79a3743d37.png
+2024-09-06 03:48:14,465 INFO    Thread-12 :52 [dir_watcher.py:_on_file_created():271] file/dir created: /app/wandb/run-20240906_034743-40hc1cko/files/media/images/images_23_a2b9007fe0b4893af6b5.png
+2024-09-06 03:48:14,466 INFO    Thread-12 :52 [dir_watcher.py:_on_file_modified():288] file/dir modified: /app/wandb/run-20240906_034743-40hc1cko/files/media/images
+2024-09-06 03:48:14,490 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:48:14,490 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:48:14,490 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:48:14,497 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:48:14,604 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:48:14,605 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:48:14,605 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:48:14,611 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:48:15,253 INFO    wandb-upload_1:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/dkpte6hr-media/images/images_23_a2b9007fe0b4893af6b5.png
+2024-09-06 03:48:15,463 INFO    Thread-12 :52 [dir_watcher.py:_on_file_modified():288] file/dir modified: /app/wandb/run-20240906_034743-40hc1cko/files/output.log
+2024-09-06 03:48:15,463 INFO    Thread-12 :52 [dir_watcher.py:_on_file_modified():288] file/dir modified: /app/wandb/run-20240906_034743-40hc1cko/files/wandb-summary.json
+2024-09-06 03:48:15,554 INFO    wandb-upload_2:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/mzphk9bx-media/images/true_23_2cb10351509c28ca4bcd.png
+2024-09-06 03:48:15,576 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: stop_status
+2024-09-06 03:48:15,576 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: stop_status
+2024-09-06 03:48:15,576 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: internal_messages
+2024-09-06 03:48:16,176 INFO    wandb-upload_3:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/s7e9d5b5-media/images/pred_23_ea20824fad79a3743d37.png
+2024-09-06 03:48:16,944 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: status_report
+2024-09-06 03:48:17,037 INFO    wandb-upload_0:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/05hf336o-media/images/images_23_a2b9007fe0b4893af6b5.png
+2024-09-06 03:48:17,463 INFO    Thread-12 :52 [dir_watcher.py:_on_file_modified():288] file/dir modified: /app/wandb/run-20240906_034743-40hc1cko/files/output.log
+2024-09-06 03:48:17,463 INFO    Thread-12 :52 [dir_watcher.py:_on_file_modified():288] file/dir modified: /app/wandb/run-20240906_034743-40hc1cko/files/config.yaml
+2024-09-06 03:48:17,912 INFO    wandb-upload_2:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/axnv690c-media/images/true_23_2cb10351509c28ca4bcd.png
+2024-09-06 03:48:18,762 INFO    wandb-upload_1:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/68fxj81s-media/images/pred_23_ea20824fad79a3743d37.png
+2024-09-06 03:48:19,715 DEBUG   SenderThread:52 [sender.py:send():391] send: files
+2024-09-06 03:48:19,715 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file media/images/images_29_c6e5fbc5779729276dca.png with policy now
+2024-09-06 03:48:19,717 DEBUG   SenderThread:52 [sender.py:send():391] send: files
+2024-09-06 03:48:19,717 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file media/images/true_29_42d9a502196bc2a187a7.png with policy now
+2024-09-06 03:48:19,719 DEBUG   SenderThread:52 [sender.py:send():391] send: files
+2024-09-06 03:48:19,719 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file media/images/pred_29_04b90dda049cee86540b.png with policy now
+2024-09-06 03:48:19,725 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:48:19,759 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:48:19,772 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:48:19,785 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:48:19,832 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:48:19,833 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:48:19,833 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:48:19,840 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:48:19,940 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:48:19,941 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:48:19,941 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:48:19,949 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:48:20,052 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:48:20,052 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:48:20,052 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:48:20,060 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:48:20,157 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:48:20,157 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:48:20,158 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:48:20,166 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:48:20,266 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:48:20,267 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:48:20,267 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:48:20,274 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:48:20,417 INFO    wandb-upload_3:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/7uqmg2vj-media/images/images_29_c6e5fbc5779729276dca.png
+2024-09-06 03:48:20,465 INFO    Thread-12 :52 [dir_watcher.py:_on_file_modified():288] file/dir modified: /app/wandb/run-20240906_034743-40hc1cko/files/wandb-summary.json
+2024-09-06 03:48:20,465 INFO    Thread-12 :52 [dir_watcher.py:_on_file_created():271] file/dir created: /app/wandb/run-20240906_034743-40hc1cko/files/media/images/pred_29_04b90dda049cee86540b.png
+2024-09-06 03:48:20,465 INFO    Thread-12 :52 [dir_watcher.py:_on_file_created():271] file/dir created: /app/wandb/run-20240906_034743-40hc1cko/files/media/images/images_29_c6e5fbc5779729276dca.png
+2024-09-06 03:48:20,465 INFO    Thread-12 :52 [dir_watcher.py:_on_file_created():271] file/dir created: /app/wandb/run-20240906_034743-40hc1cko/files/media/images/true_29_42d9a502196bc2a187a7.png
+2024-09-06 03:48:20,465 INFO    Thread-12 :52 [dir_watcher.py:_on_file_modified():288] file/dir modified: /app/wandb/run-20240906_034743-40hc1cko/files/media/images
+2024-09-06 03:48:20,466 INFO    wandb-upload_0:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/nu3yam2w-media/images/true_29_42d9a502196bc2a187a7.png
+2024-09-06 03:48:20,468 INFO    wandb-upload_2:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/vcn91ywn-media/images/pred_29_04b90dda049cee86540b.png
+2024-09-06 03:48:21,284 INFO    wandb-upload_0:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/qiv7r2y4-media/images/pred_29_04b90dda049cee86540b.png
+2024-09-06 03:48:21,319 INFO    wandb-upload_3:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/r1v0lzkb-media/images/true_29_42d9a502196bc2a187a7.png
+2024-09-06 03:48:21,352 INFO    wandb-upload_1:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/mmz27cvw-media/images/images_29_c6e5fbc5779729276dca.png
+2024-09-06 03:48:21,465 INFO    Thread-12 :52 [dir_watcher.py:_on_file_modified():288] file/dir modified: /app/wandb/run-20240906_034743-40hc1cko/files/output.log
+2024-09-06 03:48:22,580 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: status_report
+2024-09-06 03:48:23,466 INFO    Thread-12 :52 [dir_watcher.py:_on_file_modified():288] file/dir modified: /app/wandb/run-20240906_034743-40hc1cko/files/output.log
+2024-09-06 03:48:25,303 DEBUG   SenderThread:52 [sender.py:send():391] send: files
+2024-09-06 03:48:25,303 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file media/images/images_35_2e73e3190e5a1b73faaa.png with policy now
+2024-09-06 03:48:25,305 DEBUG   SenderThread:52 [sender.py:send():391] send: files
+2024-09-06 03:48:25,305 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file media/images/true_35_a3ab11155c5ff7bbbec6.png with policy now
+2024-09-06 03:48:25,307 DEBUG   SenderThread:52 [sender.py:send():391] send: files
+2024-09-06 03:48:25,307 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file media/images/pred_35_9f3a938ea663b29b2e5b.png with policy now
+2024-09-06 03:48:25,314 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:48:25,348 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:48:25,361 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:48:25,378 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:48:25,420 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:48:25,421 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:48:25,421 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:48:25,429 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:48:25,467 INFO    Thread-12 :52 [dir_watcher.py:_on_file_modified():288] file/dir modified: /app/wandb/run-20240906_034743-40hc1cko/files/wandb-summary.json
+2024-09-06 03:48:25,467 INFO    Thread-12 :52 [dir_watcher.py:_on_file_created():271] file/dir created: /app/wandb/run-20240906_034743-40hc1cko/files/media/images/images_35_2e73e3190e5a1b73faaa.png
+2024-09-06 03:48:25,468 INFO    Thread-12 :52 [dir_watcher.py:_on_file_created():271] file/dir created: /app/wandb/run-20240906_034743-40hc1cko/files/media/images/pred_35_9f3a938ea663b29b2e5b.png
+2024-09-06 03:48:25,468 INFO    Thread-12 :52 [dir_watcher.py:_on_file_created():271] file/dir created: /app/wandb/run-20240906_034743-40hc1cko/files/media/images/true_35_a3ab11155c5ff7bbbec6.png
+2024-09-06 03:48:25,468 INFO    Thread-12 :52 [dir_watcher.py:_on_file_modified():288] file/dir modified: /app/wandb/run-20240906_034743-40hc1cko/files/media/images
+2024-09-06 03:48:25,529 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:48:25,529 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:48:25,529 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:48:25,537 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:48:25,577 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: internal_messages
+2024-09-06 03:48:25,679 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:48:25,680 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:48:25,680 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:48:25,688 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:48:25,745 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:48:25,745 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:48:25,745 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:48:25,754 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:48:25,851 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:48:25,852 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:48:25,852 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:48:25,858 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:48:26,082 INFO    wandb-upload_2:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/25xgs11y-media/images/images_35_2e73e3190e5a1b73faaa.png
+2024-09-06 03:48:26,089 INFO    wandb-upload_0:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/vhki1zis-media/images/pred_35_9f3a938ea663b29b2e5b.png
+2024-09-06 03:48:26,098 INFO    wandb-upload_3:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/ezwjo94k-media/images/true_35_a3ab11155c5ff7bbbec6.png
+2024-09-06 03:48:26,467 INFO    Thread-12 :52 [dir_watcher.py:_on_file_modified():288] file/dir modified: /app/wandb/run-20240906_034743-40hc1cko/files/wandb-summary.json
+2024-09-06 03:48:26,902 INFO    wandb-upload_0:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/s3lkb79b-media/images/true_35_a3ab11155c5ff7bbbec6.png
+2024-09-06 03:48:26,947 INFO    wandb-upload_2:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/8ffen4p3-media/images/pred_35_9f3a938ea663b29b2e5b.png
+2024-09-06 03:48:26,952 INFO    wandb-upload_1:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/zo3djckg-media/images/images_35_2e73e3190e5a1b73faaa.png
+2024-09-06 03:48:27,468 INFO    Thread-12 :52 [dir_watcher.py:_on_file_modified():288] file/dir modified: /app/wandb/run-20240906_034743-40hc1cko/files/output.log
+2024-09-06 03:48:28,161 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: status_report
+2024-09-06 03:48:29,469 INFO    Thread-12 :52 [dir_watcher.py:_on_file_modified():288] file/dir modified: /app/wandb/run-20240906_034743-40hc1cko/files/output.log
+2024-09-06 03:48:30,576 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: stop_status
+2024-09-06 03:48:30,576 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: stop_status
+2024-09-06 03:48:30,982 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:48:31,002 DEBUG   SenderThread:52 [sender.py:send():391] send: files
+2024-09-06 03:48:31,007 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file media/images/images_41_65233b4c277b3c14f4b6.png with policy now
+2024-09-06 03:48:31,012 DEBUG   SenderThread:52 [sender.py:send():391] send: files
+2024-09-06 03:48:31,012 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file media/images/true_41_09187840548158fcbe1d.png with policy now
+2024-09-06 03:48:31,012 DEBUG   SenderThread:52 [sender.py:send():391] send: files
+2024-09-06 03:48:31,012 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file media/images/pred_41_37162791300d14cf423a.png with policy now
+2024-09-06 03:48:31,014 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:48:31,027 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:48:31,049 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:48:31,131 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:48:31,132 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:48:31,132 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:48:31,140 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:48:31,195 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:48:31,196 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:48:31,196 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:48:31,204 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:48:31,302 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:48:31,303 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:48:31,303 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:48:31,309 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:48:31,414 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:48:31,415 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:48:31,415 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:48:31,422 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:48:31,470 INFO    Thread-12 :52 [dir_watcher.py:_on_file_modified():288] file/dir modified: /app/wandb/run-20240906_034743-40hc1cko/files/wandb-summary.json
+2024-09-06 03:48:31,470 INFO    Thread-12 :52 [dir_watcher.py:_on_file_created():271] file/dir created: /app/wandb/run-20240906_034743-40hc1cko/files/media/images/true_41_09187840548158fcbe1d.png
+2024-09-06 03:48:31,470 INFO    Thread-12 :52 [dir_watcher.py:_on_file_created():271] file/dir created: /app/wandb/run-20240906_034743-40hc1cko/files/media/images/images_41_65233b4c277b3c14f4b6.png
+2024-09-06 03:48:31,470 INFO    Thread-12 :52 [dir_watcher.py:_on_file_created():271] file/dir created: /app/wandb/run-20240906_034743-40hc1cko/files/media/images/pred_41_37162791300d14cf423a.png
+2024-09-06 03:48:31,470 INFO    Thread-12 :52 [dir_watcher.py:_on_file_modified():288] file/dir modified: /app/wandb/run-20240906_034743-40hc1cko/files/media/images
+2024-09-06 03:48:31,534 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:48:31,534 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:48:31,534 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:48:31,541 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:48:31,806 INFO    wandb-upload_2:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/fc4mtlvq-media/images/true_41_09187840548158fcbe1d.png
+2024-09-06 03:48:31,824 INFO    wandb-upload_3:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/l7w5wbdy-media/images/images_41_65233b4c277b3c14f4b6.png
+2024-09-06 03:48:31,901 INFO    wandb-upload_0:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/tfgpc6pi-media/images/pred_41_37162791300d14cf423a.png
+2024-09-06 03:48:32,470 INFO    Thread-12 :52 [dir_watcher.py:_on_file_modified():288] file/dir modified: /app/wandb/run-20240906_034743-40hc1cko/files/wandb-summary.json
+2024-09-06 03:48:32,686 INFO    wandb-upload_2:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/kq8r1j4v-media/images/images_41_65233b4c277b3c14f4b6.png
+2024-09-06 03:48:32,725 INFO    wandb-upload_1:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/5ulaoo3e-media/images/true_41_09187840548158fcbe1d.png
+2024-09-06 03:48:32,741 INFO    wandb-upload_3:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/4y6qu7eb-media/images/pred_41_37162791300d14cf423a.png
+2024-09-06 03:48:33,470 INFO    Thread-12 :52 [dir_watcher.py:_on_file_modified():288] file/dir modified: /app/wandb/run-20240906_034743-40hc1cko/files/output.log
+2024-09-06 03:48:33,851 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: status_report
+2024-09-06 03:48:35,576 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: internal_messages
+2024-09-06 03:48:36,629 DEBUG   SenderThread:52 [sender.py:send():391] send: files
+2024-09-06 03:48:36,629 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file media/images/images_47_34f9ef37447a6040b9c1.png with policy now
+2024-09-06 03:48:36,631 DEBUG   SenderThread:52 [sender.py:send():391] send: files
+2024-09-06 03:48:36,631 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file media/images/true_47_3c904e497d8d780176aa.png with policy now
+2024-09-06 03:48:36,633 DEBUG   SenderThread:52 [sender.py:send():391] send: files
+2024-09-06 03:48:36,633 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file media/images/pred_47_cc01f7339a08de8c34f4.png with policy now
+2024-09-06 03:48:36,640 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:48:36,669 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:48:36,681 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:48:36,695 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:48:36,753 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:48:36,754 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:48:36,754 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:48:36,762 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:48:36,862 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:48:36,862 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:48:36,862 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:48:36,870 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:48:36,968 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:48:36,968 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:48:36,968 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:48:36,974 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:48:37,081 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:48:37,081 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:48:37,081 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:48:37,089 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:48:37,190 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:48:37,191 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:48:37,191 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:48:37,198 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:48:37,383 INFO    wandb-upload_2:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/13fpzy2t-media/images/pred_47_cc01f7339a08de8c34f4.png
+2024-09-06 03:48:37,423 INFO    wandb-upload_1:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/5ryja6xg-media/images/true_47_3c904e497d8d780176aa.png
+2024-09-06 03:48:37,472 INFO    Thread-12 :52 [dir_watcher.py:_on_file_modified():288] file/dir modified: /app/wandb/run-20240906_034743-40hc1cko/files/wandb-summary.json
+2024-09-06 03:48:37,472 INFO    Thread-12 :52 [dir_watcher.py:_on_file_created():271] file/dir created: /app/wandb/run-20240906_034743-40hc1cko/files/media/images/true_47_3c904e497d8d780176aa.png
+2024-09-06 03:48:37,472 INFO    Thread-12 :52 [dir_watcher.py:_on_file_created():271] file/dir created: /app/wandb/run-20240906_034743-40hc1cko/files/media/images/pred_47_cc01f7339a08de8c34f4.png
+2024-09-06 03:48:37,472 INFO    Thread-12 :52 [dir_watcher.py:_on_file_created():271] file/dir created: /app/wandb/run-20240906_034743-40hc1cko/files/media/images/images_47_34f9ef37447a6040b9c1.png
+2024-09-06 03:48:37,472 INFO    Thread-12 :52 [dir_watcher.py:_on_file_modified():288] file/dir modified: /app/wandb/run-20240906_034743-40hc1cko/files/media/images
+2024-09-06 03:48:37,918 INFO    wandb-upload_0:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/ylfjyf49-media/images/images_47_34f9ef37447a6040b9c1.png
+2024-09-06 03:48:38,278 INFO    wandb-upload_1:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/yp6blsni-media/images/pred_47_cc01f7339a08de8c34f4.png
+2024-09-06 03:48:38,788 INFO    wandb-upload_2:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/yi57hjl9-media/images/images_47_34f9ef37447a6040b9c1.png
+2024-09-06 03:48:38,913 INFO    wandb-upload_3:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/6ut53nv5-media/images/true_47_3c904e497d8d780176aa.png
+2024-09-06 03:48:39,472 INFO    Thread-12 :52 [dir_watcher.py:_on_file_modified():288] file/dir modified: /app/wandb/run-20240906_034743-40hc1cko/files/output.log
+2024-09-06 03:48:39,500 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: status_report
+2024-09-06 03:48:42,295 DEBUG   SenderThread:52 [sender.py:send():391] send: files
+2024-09-06 03:48:42,295 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file media/images/images_53_25a7c0e9f69b9945d6a6.png with policy now
+2024-09-06 03:48:42,298 DEBUG   SenderThread:52 [sender.py:send():391] send: files
+2024-09-06 03:48:42,298 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file media/images/true_53_5c1f82234d86b750d536.png with policy now
+2024-09-06 03:48:42,300 DEBUG   SenderThread:52 [sender.py:send():391] send: files
+2024-09-06 03:48:42,300 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file media/images/pred_53_79f985063d6340ad145e.png with policy now
+2024-09-06 03:48:42,310 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:48:42,342 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:48:42,357 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:48:42,376 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:48:42,431 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:48:42,431 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:48:42,431 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:48:42,439 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:48:42,473 INFO    Thread-12 :52 [dir_watcher.py:_on_file_modified():288] file/dir modified: /app/wandb/run-20240906_034743-40hc1cko/files/wandb-summary.json
+2024-09-06 03:48:42,474 INFO    Thread-12 :52 [dir_watcher.py:_on_file_created():271] file/dir created: /app/wandb/run-20240906_034743-40hc1cko/files/media/images/true_53_5c1f82234d86b750d536.png
+2024-09-06 03:48:42,474 INFO    Thread-12 :52 [dir_watcher.py:_on_file_created():271] file/dir created: /app/wandb/run-20240906_034743-40hc1cko/files/media/images/pred_53_79f985063d6340ad145e.png
+2024-09-06 03:48:42,474 INFO    Thread-12 :52 [dir_watcher.py:_on_file_created():271] file/dir created: /app/wandb/run-20240906_034743-40hc1cko/files/media/images/images_53_25a7c0e9f69b9945d6a6.png
+2024-09-06 03:48:42,474 INFO    Thread-12 :52 [dir_watcher.py:_on_file_modified():288] file/dir modified: /app/wandb/run-20240906_034743-40hc1cko/files/media/images
+2024-09-06 03:48:42,544 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:48:42,544 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:48:42,544 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:48:42,552 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:48:42,660 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:48:42,661 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:48:42,661 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:48:42,669 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:48:42,779 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:48:42,780 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:48:42,780 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:48:42,788 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:48:42,896 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:48:42,897 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:48:42,897 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:48:42,903 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:48:43,077 INFO    wandb-upload_0:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/2klnx1ep-media/images/images_53_25a7c0e9f69b9945d6a6.png
+2024-09-06 03:48:43,086 INFO    wandb-upload_1:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/joi2lz6v-media/images/pred_53_79f985063d6340ad145e.png
+2024-09-06 03:48:43,087 INFO    wandb-upload_2:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/7btw91c2-media/images/true_53_5c1f82234d86b750d536.png
+2024-09-06 03:48:43,474 INFO    Thread-12 :52 [dir_watcher.py:_on_file_modified():288] file/dir modified: /app/wandb/run-20240906_034743-40hc1cko/files/output.log
+2024-09-06 03:48:43,474 INFO    Thread-12 :52 [dir_watcher.py:_on_file_modified():288] file/dir modified: /app/wandb/run-20240906_034743-40hc1cko/files/wandb-summary.json
+2024-09-06 03:48:44,418 INFO    wandb-upload_1:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/64tac1dw-media/images/images_53_25a7c0e9f69b9945d6a6.png
+2024-09-06 03:48:44,583 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: status_report
+2024-09-06 03:48:45,107 INFO    wandb-upload_3:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/nuun1vxf-media/images/pred_53_79f985063d6340ad145e.png
+2024-09-06 03:48:45,276 INFO    wandb-upload_2:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/g695tybu-media/images/true_53_5c1f82234d86b750d536.png
+2024-09-06 03:48:45,468 DEBUG   SystemMonitor:52 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2024-09-06 03:48:45,469 DEBUG   SenderThread:52 [sender.py:send():391] send: stats
+2024-09-06 03:48:45,474 INFO    Thread-12 :52 [dir_watcher.py:_on_file_modified():288] file/dir modified: /app/wandb/run-20240906_034743-40hc1cko/files/output.log
+2024-09-06 03:48:45,576 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: stop_status
+2024-09-06 03:48:45,576 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: stop_status
+2024-09-06 03:48:45,577 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: internal_messages
+2024-09-06 03:48:47,475 INFO    Thread-12 :52 [dir_watcher.py:_on_file_modified():288] file/dir modified: /app/wandb/run-20240906_034743-40hc1cko/files/output.log
+2024-09-06 03:48:48,026 DEBUG   SenderThread:52 [sender.py:send():391] send: files
+2024-09-06 03:48:48,026 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file media/images/images_59_2b2f05e62e6057e878f3.png with policy now
+2024-09-06 03:48:48,028 DEBUG   SenderThread:52 [sender.py:send():391] send: files
+2024-09-06 03:48:48,028 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file media/images/true_59_3151f2c7591c9f0cb7e5.png with policy now
+2024-09-06 03:48:48,030 DEBUG   SenderThread:52 [sender.py:send():391] send: files
+2024-09-06 03:48:48,030 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file media/images/pred_59_2a422faa6a18dc54fee2.png with policy now
+2024-09-06 03:48:48,036 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:48:48,072 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:48:48,085 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:48:48,099 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:48:48,149 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-06 03:48:48,149 DEBUG   SenderThread:52 [sender.py:send():391] send: history
+2024-09-06 03:48:48,150 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: summary_record
+2024-09-06 03:48:48,157 INFO    SenderThread:52 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-06 03:48:48,476 INFO    Thread-12 :52 [dir_watcher.py:_on_file_modified():288] file/dir modified: /app/wandb/run-20240906_034743-40hc1cko/files/wandb-summary.json
+2024-09-06 03:48:48,476 INFO    Thread-12 :52 [dir_watcher.py:_on_file_created():271] file/dir created: /app/wandb/run-20240906_034743-40hc1cko/files/media/images/images_59_2b2f05e62e6057e878f3.png
+2024-09-06 03:48:48,476 INFO    Thread-12 :52 [dir_watcher.py:_on_file_created():271] file/dir created: /app/wandb/run-20240906_034743-40hc1cko/files/media/images/pred_59_2a422faa6a18dc54fee2.png
+2024-09-06 03:48:48,476 INFO    Thread-12 :52 [dir_watcher.py:_on_file_created():271] file/dir created: /app/wandb/run-20240906_034743-40hc1cko/files/media/images/true_59_3151f2c7591c9f0cb7e5.png
+2024-09-06 03:48:48,476 INFO    Thread-12 :52 [dir_watcher.py:_on_file_modified():288] file/dir modified: /app/wandb/run-20240906_034743-40hc1cko/files/media/images
+2024-09-06 03:48:48,784 INFO    wandb-upload_1:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/8is80nat-media/images/images_59_2b2f05e62e6057e878f3.png
+2024-09-06 03:48:48,830 INFO    wandb-upload_0:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/5u7huvzx-media/images/pred_59_2a422faa6a18dc54fee2.png
+2024-09-06 03:48:48,835 INFO    wandb-upload_3:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/9x467q2q-media/images/true_59_3151f2c7591c9f0cb7e5.png
+2024-09-06 03:48:49,477 INFO    Thread-12 :52 [dir_watcher.py:_on_file_modified():288] file/dir modified: /app/wandb/run-20240906_034743-40hc1cko/files/output.log
+2024-09-06 03:48:49,695 INFO    wandb-upload_0:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/cxxv1jbo-media/images/true_59_3151f2c7591c9f0cb7e5.png
+2024-09-06 03:48:49,697 INFO    wandb-upload_1:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/ca9svt9m-media/images/pred_59_2a422faa6a18dc54fee2.png
+2024-09-06 03:48:50,088 INFO    wandb-upload_2:52 [upload_job.py:push():130] Uploaded file /tmp/tmp6z8_3wgfwandb/5dbckdeu-media/images/images_59_2b2f05e62e6057e878f3.png
+2024-09-06 03:48:50,431 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: status_report
+2024-09-06 03:48:51,481 INFO    Thread-12 :52 [dir_watcher.py:_on_file_modified():288] file/dir modified: /app/wandb/run-20240906_034743-40hc1cko/files/output.log
+2024-09-06 03:48:55,577 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: internal_messages
+2024-09-06 03:48:55,580 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: status_report
+2024-09-06 03:49:00,576 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: stop_status
+2024-09-06 03:49:00,577 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: stop_status
+2024-09-06 03:49:01,489 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: status_report
+2024-09-06 03:49:05,577 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: internal_messages
+2024-09-06 03:49:06,581 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: status_report
+2024-09-06 03:49:11,581 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: status_report
+2024-09-06 03:49:15,470 DEBUG   SenderThread:52 [sender.py:send():391] send: stats
+2024-09-06 03:49:15,577 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: stop_status
+2024-09-06 03:49:15,577 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: stop_status
+2024-09-06 03:49:15,619 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: internal_messages
+2024-09-06 03:49:16,909 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: status_report
+2024-09-06 03:49:22,582 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: status_report
+2024-09-06 03:49:25,577 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: internal_messages
+2024-09-06 03:49:28,582 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: status_report
+2024-09-06 03:49:30,576 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: stop_status
+2024-09-06 03:49:30,576 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: stop_status
+2024-09-06 03:49:33,930 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: status_report
+2024-09-06 03:49:35,577 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: internal_messages
+2024-09-06 03:49:39,582 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: status_report
+2024-09-06 03:49:45,470 DEBUG   SenderThread:52 [sender.py:send():391] send: stats
+2024-09-06 03:49:45,471 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: status_report
+2024-09-06 03:49:45,576 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: stop_status
+2024-09-06 03:49:45,576 DEBUG   SenderThread:52 [sender.py:send_request():418] send_request: stop_status
+2024-09-06 03:49:45,619 DEBUG   HandlerThread:52 [handler.py:handle_request():158] handle_request: internal_messages

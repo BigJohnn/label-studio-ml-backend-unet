@@ -1,2 +1,2 @@
 gunicorn==22.0.0
-label-studio-ml @ git+https://github.com/HumanSignal/label-studio-ml-backend.git
+label-studio-ml @ git+https://github.com/HumanSignal/label-studio-ml-backend.git@49e8929d90efee98f53258b9ac41c34fea5cd4d6

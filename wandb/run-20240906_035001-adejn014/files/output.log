@@ -1,0 +1,155 @@
+[2024-09-06 03:50:03,540] [INFO] [root::train_net::129] Starting training:
+        Epochs:          5
+        Batch size:      1
+        Learning rate:   1e-05
+        Training size:   51
+        Validation size: 5
+        Checkpoints:     True
+        Device:          cpu
+        Images scaling:  0.5
+        Mixed Precision: False
+/app/model.py:144: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  grad_scaler = torch.cuda.amp.GradScaler(enabled=amp)
+Epoch 1/5:   0%|          | 0/51 [00:00<?, ?img/s]/app/model.py:165: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=amp):
+Epoch 1/5:  10%|▉         | 5/51 [00:04<00:22,  2.03img/s, loss (batch)=1.26]
+Validation round:   0%|          | 0/5 [00:00<?, ?batch/s]
+[2024-09-06 03:50:13,637] [INFO] [root::train_net::200] Validation Dice score: 3.3840172886101527e-09
+
+[2024-09-06 03:50:13,791] [DEBUG] [urllib3.connectionpool::_new_conn::1051] Starting new HTTPS connection (1): api.wandb.ai:443
+[2024-09-06 03:50:14,659] [DEBUG] [urllib3.connectionpool::_make_request::546] https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+Epoch 1/5:  10%|▉         | 5/51 [00:04<00:22,  2.03img/s, loss (b/app/model.py:165: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=amp):
+Epoch 1/5:  20%|█▉        | 10/51 [00:12<00:26,  1.54img/s, loss (batch)=1.04]
+Validation round:   0%|          | 0/5 [00:00<?, ?batch/s]
+
+Validation round:  20%|██        | 1/5 [00:04<00:17,  4.42s/batch]
+
+Validation round:   0%|          | 0/5 [00:00<?, ?batch/s]
+
+Epoch 1/5:  49%|████▉     | 25/51 [00:29<00:14,  1.81img/s, loss (batch)=0.726]
+Validation round:   0%|          | 0/5 [00:00<?, ?batch/s]
+
+Epoch 1/5:  59%|█████▉    | 30/51 [00:34<00:11,  1.81img/s, loss (batch)=0.742]
+Validation round:   0%|          | 0/5 [00:00<?, ?batch/s]
+
+[2024-09-06 03:50:43,321] [INFO] [root::train_net::200] Validation Dice score: 0.0838959589600563
+Validation round:   0%|          | 0/5 [00:00<?, ?batch/s]
+[2024-09-06 03:50:48,973] [INFO] [root::train_net::200] Validation Dice score: 0.29589104652404785
+
+Validation round:  20%|██        | 1/5 [00:04<00:17,  4.42s/batch]
+[2024-09-06 03:51:00,328] [INFO] [root::train_net::200] Validation Dice score: 0.7144944667816162
+
+Validation round:   0%|          | 0/5 [00:00<?, ?batch/s]
+[2024-09-06 03:51:02,568] [DEBUG] [urllib3.connectionpool::_make_request::546] https://o151352.ingest.sentry.io:443 "POST /api/4504800232407040/envelope/ HTTP/11" 200 0
+
+[2024-09-06 03:51:05,987] [INFO] [root::train_net::200] Validation Dice score: 0.8127942085266113
+Epoch 1/5: 100%|██████████| 51/51 [01:02<00:00,  1.23s/img, loss (batch)=0.697]
+Epoch 2/5:   8%|▊         | 4/51 [00:04<00:33,  1.40img/s, loss (batch)=0.683]
+Validation round:   0%|          | 0/5 [00:00<?, ?batch/s]
+
+[2024-09-06 03:51:16,409] [INFO] [root::train_net::200] Validation Dice score: 0.8332027196884155
+Epoch 2/5:  27%|██▋       | 14/51 [00:16<00:20,  1.80img/s, loss (batch)=0.718]
+Validation round:   0%|          | 0/5 [00:00<?, ?batch/s]
+
+Epoch 2/5:  37%|███▋      | 19/51 [00:21<00:17,  1.80img/s, loss (batch)=0.681]
+Validation round:   0%|          | 0/5 [00:00<?, ?batch/s]
+
+Epoch 2/5:  47%|████▋     | 24/51 [00:27<00:14,  1.81img/s, loss (batch)=0.698]
+Validation round:   0%|          | 0/5 [00:00<?, ?batch/s]
+[2024-09-06 03:51:39,053] [INFO] [root::train_net::200] Validation Dice score: 0.842034637928009
+
+Validation round:  20%|██        | 1/5 [00:04<00:17,  4.42s/batch]
+
+Validation round:   0%|          | 0/5 [00:00<?, ?batch/s]
+
+Epoch 2/5:  86%|████████▋ | 44/51 [00:50<00:03,  1.81img/s, loss (batch)=0.664]
+Validation round:   0%|          | 0/5 [00:00<?, ?batch/s]
+
+Epoch 2/5:  96%|█████████▌| 49/51 [00:55<00:01,  1.78img/s, loss (batch)=0.784]
+Validation round:   0%|          | 0/5 [00:00<?, ?batch/s]
+
+Epoch 3/5:   0%|          | 0/51 [00:00<?, ?img/s]
+Epoch 3/5:   6%|▌         | 3/51 [00:04<00:52,  1.10s/img, loss (batch)=0.664]
+Validation round:   0%|          | 0/5 [00:00<?, ?batch/s]
+
+Epoch 3/5:  16%|█▌        | 8/51 [00:10<00:26,  1.62img/s, loss (batch)=0.729]
+Validation round:   0%|          | 0/5 [00:00<?, ?batch/s]
+
+Epoch 3/5:  25%|██▌       | 13/51 [00:16<00:21,  1.76img/s, loss (batch)=0.737]
+Validation round:   0%|          | 0/5 [00:00<?, ?batch/s]
+
+[2024-09-06 03:52:29,307] [INFO] [root::train_net::200] Validation Dice score: 0.8342170715332031
+Validation round:   0%|          | 0/5 [00:00<?, ?batch/s]
+[2024-09-06 03:52:35,001] [INFO] [root::train_net::200] Validation Dice score: 0.8449293971061707
+
+Validation round:  20%|██        | 1/5 [00:04<00:17,  4.44s/batch]
+
+Validation round:   0%|          | 0/5 [00:00<?, ?batch/s]
+
+Epoch 3/5:  75%|███████▍  | 38/51 [00:44<00:07,  1.78img/s, loss (batch)=1.18]
+Validation round:   0%|          | 0/5 [00:00<?, ?batch/s]
+
+Epoch 3/5:  84%|████████▍ | 43/51 [00:50<00:04,  1.79img/s, loss (batch)=0.689]
+Validation round:   0%|          | 0/5 [00:00<?, ?batch/s]
+
+Epoch 3/5:  94%|█████████▍| 48/51 [00:55<00:01,  1.80img/s, loss (batch)=0.659]
+Validation round:   0%|          | 0/5 [00:00<?, ?batch/s]
+[2024-09-06 03:53:09,206] [INFO] [root::train_net::200] Validation Dice score: 0.8342105746269226
+
+Epoch 4/5:   4%|▍         | 2/51 [00:04<01:34,  1.92s/img, loss (batch)=0.658]
+Validation round:   0%|          | 0/5 [00:00<?, ?batch/s]
+
+Epoch 4/5:  14%|█▎        | 7/51 [00:10<00:30,  1.45img/s, loss (batch)=0.689]
+Validation round:   0%|          | 0/5 [00:00<?, ?batch/s]
+
+[2024-09-06 03:53:25,399] [INFO] [root::train_net::200] Validation Dice score: 0.8359240293502808
+Validation round:   0%|          | 0/5 [00:00<?, ?batch/s]
+[2024-09-06 03:53:31,134] [INFO] [root::train_net::200] Validation Dice score: 0.8349107503890991
+[2024-09-06 03:53:36,778] [INFO] [root::train_net::200] Validation Dice score: 0.8323771357536316
+
+
+Validation round:   0%|          | 0/5 [00:00<?, ?batch/s]
+
+[2024-09-06 03:53:48,238] [INFO] [root::train_net::200] Validation Dice score: 0.8342788815498352
+Epoch 4/5:  73%|███████▎  | 37/51 [00:44<00:07,  1.80img/s, loss (batch)=0.691]
+
+Validation round:   0%|          | 0/5 [00:00<?, ?batch/s]
+[2024-09-06 03:53:59,575] [INFO] [root::train_net::200] Validation Dice score: 0.8377827405929565
+Validation round:   0%|          | 0/5 [00:00<?, ?batch/s]
+
+Epoch 5/5:   0%|          | 0/51 [00:00<?, ?img/s]
+[2024-09-06 03:54:10,887] [INFO] [root::train_net::200] Validation Dice score: 0.8403140902519226
+Epoch 5/5:   2%|▏         | 1/51 [00:04<03:44,  4.49s/img, loss (batch)=0.683]
+Validation round:   0%|          | 0/5 [00:00<?, ?batch/s]
+[2024-09-06 03:54:21,297] [INFO] [root::train_net::200] Validation Dice score: 0.8448150753974915
+
+[2024-09-06 03:54:26,978] [INFO] [root::train_net::200] Validation Dice score: 0.8442260026931763
+[2024-09-06 03:54:32,628] [INFO] [root::train_net::200] Validation Dice score: 0.8386520147323608
+
+
+Validation round:   0%|          | 0/5 [00:00<?, ?batch/s]
+
+[2024-09-06 03:54:38,382] [INFO] [root::train_net::200] Validation Dice score: 0.8438738584518433
+Epoch 5/5:  51%|█████     | 26/51 [00:32<00:13,  1.81img/s, loss (batch)=0.677]
+
+Validation round:   0%|          | 0/5 [00:00<?, ?batch/s]
+Epoch 5/5:  61%|██████    | 31/51 [00:38<00:11,  1.79img/s, loss (batch)=0.664]
+
+Validation round:   0%|          | 0/5 [00:00<?, ?batch/s]
+[2024-09-06 03:54:55,398] [INFO] [root::train_net::200] Validation Dice score: 0.8332586288452148
+Validation round:   0%|          | 0/5 [00:00<?, ?batch/s]
+[2024-09-06 03:55:01,059] [INFO] [root::train_net::200] Validation Dice score: 0.8480721712112427
+
+Validation round:  20%|██        | 1/5 [00:04<00:17,  4.41s/batch]
+
+
+Validation round:   0%|          | 0/5 [00:00<?, ?batch/s]
+
+Epoch 5/5: 100%|██████████| 51/51 [01:06<00:00,  1.31s/img, loss (batch)=0.667]
+[2024-09-06 03:55:18,493] [INFO] [root::train_net::217] Checkpoint 5 saved!
+Training completed (if applicable) for event: START_TRAINING
+fit() completed successfully.
+[2024-09-06 03:55:18,503] [DEBUG] [label_studio_ml.api::log_response_info::185] Response status: 201 CREATED
+[2024-09-06 03:55:18,503] [DEBUG] [label_studio_ml.api::log_response_info::186] Response headers: Content-Type: application/json
+Content-Length: 3

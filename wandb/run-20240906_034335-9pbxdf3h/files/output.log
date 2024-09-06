@@ -1,0 +1,28 @@
+[2024-09-06 03:43:37,934] [INFO] [root::train_net::127] Starting training:
+        Epochs:          5
+        Batch size:      1
+        Learning rate:   1e-05
+        Training size:   51
+        Validation size: 5
+        Checkpoints:     True
+        Device:          cpu
+        Images scaling:  0.5
+        Mixed Precision: False
+/app/model.py:142: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  grad_scaler = torch.cuda.amp.GradScaler(enabled=amp)
+Epoch 1/5:   0%|          | 0/51 [00:00<?, ?img/s]/app/model.py:163: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=amp):
+Epoch 1/5:  10%|▉         | 5/51 [00:05<00:23,  1.98img/s, loss (batch)=0.984]
+Validation round:   0%|          | 0/5 [00:00<?, ?batch/s]
+[2024-09-06 03:43:48,104] [INFO] [root::train_net::198] Validation Dice score: 3.3840172886101527e-09
+
+[2024-09-06 03:43:48,272] [DEBUG] [urllib3.connectionpool::_new_conn::1051] Starting new HTTPS connection (1): api.wandb.ai:443
+[2024-09-06 03:43:49,158] [DEBUG] [urllib3.connectionpool::_make_request::546] https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+Epoch 1/5:  10%|▉         | 5/51 [00:05<00:23,  1.98img/s, loss (b/app/model.py:163: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=amp):
+Epoch 1/5:  20%|█▉        | 10/51 [00:12<00:26,  1.54img/s, loss (batch)=0.889]
+Validation round:   0%|          | 0/5 [00:00<?, ?batch/s]
+[2024-09-06 03:43:55,134] [INFO] [root::train_net::198] Validation Dice score: 3.3840172886101527e-09
+
+Validation round:  20%|██        | 1/5 [00:04<00:17,  4.49s/batch]
+

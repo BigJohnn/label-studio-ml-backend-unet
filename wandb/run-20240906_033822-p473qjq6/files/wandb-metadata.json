@@ -1,0 +1,164 @@
+{
+    "os": "Linux-5.15.0-119-generic-x86_64-with-glibc2.36",
+    "python": "3.12.5",
+    "heartbeatAt": "2024-09-06T03:38:26.649187",
+    "startedAt": "2024-09-06T03:38:22.583226",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "--preload",
+        "--bind",
+        ":9090",
+        "--workers",
+        "1",
+        "--threads",
+        "8",
+        "--timeout",
+        "0",
+        "_wsgi:app"
+    ],
+    "state": "running",
+    "program": "/usr/local/bin/gunicorn",
+    "codePathLocal": null,
+    "host": "b2adc7bc433d",
+    "username": "root",
+    "executable": "/usr/local/bin/python",
+    "cpu_count": 16,
+    "cpu_count_logical": 24,
+    "cpu_freq": {
+        "current": 3366.3843333333334,
+        "min": 800.0,
+        "max": 4950.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 3400.0,
+            "min": 800.0,
+            "max": 5300.0
+        },
+        {
+            "current": 3400.0,
+            "min": 800.0,
+            "max": 5300.0
+        },
+        {
+            "current": 3400.0,
+            "min": 800.0,
+            "max": 5300.0
+        },
+        {
+            "current": 3400.0,
+            "min": 800.0,
+            "max": 5300.0
+        },
+        {
+            "current": 1093.596,
+            "min": 800.0,
+            "max": 5300.0
+        },
+        {
+            "current": 3400.0,
+            "min": 800.0,
+            "max": 5300.0
+        },
+        {
+            "current": 3400.0,
+            "min": 800.0,
+            "max": 5300.0
+        },
+        {
+            "current": 3400.0,
+            "min": 800.0,
+            "max": 5300.0
+        },
+        {
+            "current": 3400.0,
+            "min": 800.0,
+            "max": 5400.0
+        },
+        {
+            "current": 3400.0,
+            "min": 800.0,
+            "max": 5400.0
+        },
+        {
+            "current": 1091.216,
+            "min": 800.0,
+            "max": 5400.0
+        },
+        {
+            "current": 3400.0,
+            "min": 800.0,
+            "max": 5400.0
+        },
+        {
+            "current": 3400.0,
+            "min": 800.0,
+            "max": 5300.0
+        },
+        {
+            "current": 3400.0,
+            "min": 800.0,
+            "max": 5300.0
+        },
+        {
+            "current": 3400.0,
+            "min": 800.0,
+            "max": 5300.0
+        },
+        {
+            "current": 3400.0,
+            "min": 800.0,
+            "max": 5300.0
+        },
+        {
+            "current": 3400.0,
+            "min": 800.0,
+            "max": 4200.0
+        },
+        {
+            "current": 3400.0,
+            "min": 800.0,
+            "max": 4200.0
+        },
+        {
+            "current": 3400.0,
+            "min": 800.0,
+            "max": 4200.0
+        },
+        {
+            "current": 3400.0,
+            "min": 800.0,
+            "max": 4200.0
+        },
+        {
+            "current": 3400.0,
+            "min": 800.0,
+            "max": 4200.0
+        },
+        {
+            "current": 3400.0,
+            "min": 800.0,
+            "max": 4200.0
+        },
+        {
+            "current": 3400.0,
+            "min": 800.0,
+            "max": 4200.0
+        },
+        {
+            "current": 3400.0,
+            "min": 800.0,
+            "max": 4200.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 250.92291641235352,
+            "used": 228.04981231689453
+        }
+    },
+    "memory": {
+        "total": 62.628883361816406
+    }
+}

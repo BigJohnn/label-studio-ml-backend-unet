@@ -8,11 +8,56 @@ import logging
 
 import numpy as np
 import torch
+import torch.nn as nn
 import torch.nn.functional as F
 from torchvision import transforms
-
+from torch import optim
+from torch.utils.data import DataLoader, random_split
+from tqdm import tqdm
+import wandb
 from utils.data_loading import BasicDataset
 from uuid import uuid4
+import requests
+import label_studio_sdk
+from utils.dice_score import dice_loss
+import os
+logger = logging.getLogger(__name__)
+from utils.dice_score import multiclass_dice_coeff, dice_coeff
+from pathlib import Path
+
+def evaluate(net, dataloader, device):
+    net.eval()
+    num_val_batches = len(dataloader)
+    dice_score = 0
+
+    # iterate over the validation set
+    for batch in tqdm(dataloader, total=num_val_batches, desc='Validation round', unit='batch', leave=False):
+        image, mask_true = batch['image'], batch['mask']
+        # move images and labels to correct device and type
+        image = image.to(device=device, dtype=torch.float32)
+        mask_true = mask_true.to(device=device, dtype=torch.long)
+        mask_true = F.one_hot(mask_true, net.n_classes).permute(0, 3, 1, 2).float()
+
+        with torch.no_grad():
+            # predict the mask
+            mask_pred = net(image)
+
+            # convert to one-hot format
+            if net.n_classes == 1:
+                mask_pred = (F.sigmoid(mask_pred) > 0.5).float()
+                # compute the Dice score
+                dice_score += dice_coeff(mask_pred, mask_true, reduce_batch_first=False)
+            else:
+                mask_pred = F.one_hot(mask_pred.argmax(dim=1), net.n_classes).permute(0, 3, 1, 2).float()
+                # compute the Dice score, ignoring background
+                dice_score += multiclass_dice_coeff(mask_pred[:, 1:, ...], mask_true[:, 1:, ...], reduce_batch_first=False)
+
+    net.train()
+
+    # Fixes a potential division by zero error
+    if num_val_batches == 0:
+        return dice_score
+    return dice_score / num_val_batches
 
 def predict_img(net,
                 full_img,
@@ -49,6 +94,127 @@ def mask_to_image(mask: np.ndarray):
         return Image.fromarray((mask * 255).astype(np.uint8))
     elif mask.ndim == 3:
         return Image.fromarray((np.argmax(mask, axis=0) * 255 / mask.shape[0]).astype(np.uint8))
+
+dir_checkpoint = Path('./checkpoints/')
+
+def train_net(images,masks,net,
+              device,
+              epochs: int = 5,
+              batch_size: int = 1,
+              learning_rate: float = 1e-5,
+              val_percent: float = 0.1,
+              save_checkpoint: bool = True,
+              img_scale: float = 0.5,
+              amp: bool = False):
+    # 1. Create dataset
+    
+    dataset = BasicDataset(images, masks, img_scale)
+
+    # 2. Split into train / validation partitions
+    n_val = int(len(dataset) * val_percent)
+    n_train = len(dataset) - n_val
+    train_set, val_set = random_split(dataset, [n_train, n_val], generator=torch.Generator().manual_seed(0))
+
+    # 3. Create data loaders
+    loader_args = dict(batch_size=batch_size, num_workers=4, pin_memory=True)
+    train_loader = DataLoader(train_set, shuffle=True, **loader_args)
+    val_loader = DataLoader(val_set, shuffle=False, drop_last=True, **loader_args)
+
+    # (Initialize logging)
+    experiment = wandb.init(project='U-Net', resume='allow', anonymous='must')
+    experiment.config.update(dict(epochs=epochs, batch_size=batch_size, learning_rate=learning_rate,
+                                  val_percent=val_percent, save_checkpoint=save_checkpoint, img_scale=img_scale,
+                                  amp=amp))
+
+    logging.info(f'''Starting training:
+        Epochs:          {epochs}
+        Batch size:      {batch_size}
+        Learning rate:   {learning_rate}
+        Training size:   {n_train}
+        Validation size: {n_val}
+        Checkpoints:     {save_checkpoint}
+        Device:          {device.type}
+        Images scaling:  {img_scale}
+        Mixed Precision: {amp}
+    ''')
+
+    # 4. Set up the optimizer, the loss, the learning rate scheduler and the loss scaling for AMP
+    optimizer = optim.RMSprop(net.parameters(), lr=learning_rate, weight_decay=1e-8, momentum=0.9)
+    scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'max', patience=2)  # goal: maximize Dice score
+    grad_scaler = torch.cuda.amp.GradScaler(enabled=amp)
+    criterion = nn.CrossEntropyLoss()
+    global_step = 0
+
+    # 5. Begin training
+    for epoch in range(epochs):
+        net.train()
+        epoch_loss = 0
+        with tqdm(total=n_train, desc=f'Epoch {epoch + 1}/{epochs}', unit='img') as pbar:
+            for batch in train_loader:
+                images = batch['image']
+                true_masks = batch['mask']
+
+                assert images.shape[1] == net.n_channels, \
+                    f'Network has been defined with {net.n_channels} input channels, ' \
+                    f'but loaded images have {images.shape[1]} channels. Please check that ' \
+                    'the images are loaded correctly.'
+
+                images = images.to(device=device, dtype=torch.float32)
+                true_masks = true_masks.to(device=device, dtype=torch.long)
+
+                with torch.cuda.amp.autocast(enabled=amp):
+                    masks_pred = net(images)
+                    loss = criterion(masks_pred, true_masks) \
+                           + dice_loss(F.softmax(masks_pred, dim=1).float(),
+                                       F.one_hot(true_masks, net.n_classes).permute(0, 3, 1, 2).float(),
+                                       multiclass=True)
+
+                optimizer.zero_grad(set_to_none=True)
+                grad_scaler.scale(loss).backward()
+                grad_scaler.step(optimizer)
+                grad_scaler.update()
+
+                pbar.update(images.shape[0])
+                global_step += 1
+                epoch_loss += loss.item()
+                experiment.log({
+                    'train loss': loss.item(),
+                    'step': global_step,
+                    'epoch': epoch
+                })
+                pbar.set_postfix(**{'loss (batch)': loss.item()})
+
+                # Evaluation round
+                division_step = (n_train // (10 * batch_size))
+                if division_step > 0:
+                    if global_step % division_step == 0:
+                        histograms = {}
+                        for tag, value in net.named_parameters():
+                            tag = tag.replace('/', '.')
+                            histograms['Weights/' + tag] = wandb.Histogram(value.data.cpu())
+                            histograms['Gradients/' + tag] = wandb.Histogram(value.grad.data.cpu())
+
+                        val_score = evaluate(net, val_loader, device)
+                        scheduler.step(val_score)
+
+                        logging.info('Validation Dice score: {}'.format(val_score))
+                        experiment.log({
+                            'learning rate': optimizer.param_groups[0]['lr'],
+                            'validation Dice': val_score,
+                            'images': wandb.Image(images[0].cpu()),
+                            'masks': {
+                                'true': wandb.Image(true_masks[0].float().cpu()),
+                                'pred': wandb.Image(torch.softmax(masks_pred, dim=1).argmax(dim=1)[0].float().cpu()),
+                            },
+                            'step': global_step,
+                            'epoch': epoch,
+                            **histograms
+                        })
+
+        if save_checkpoint:
+            Path(dir_checkpoint).mkdir(parents=True, exist_ok=True)
+            torch.save(net.state_dict(), str(dir_checkpoint / 'checkpoint_epoch{}.pth'.format(epoch + 1)))
+            logging.info(f'Checkpoint {epoch + 1} saved!')
 class NewModel(LabelStudioMLBase):
     """Custom ML Backend model
     """
@@ -61,12 +227,17 @@ class NewModel(LabelStudioMLBase):
 
         device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-        MODELPATH='/home/hph/Codes/inference_test/checkpoint_epoch5.pth'
+        MODELPATH='/checkpoints/checkpoint_epoch5.pth'
         logging.info(f'Loading model {MODELPATH}')
         logging.info(f'Using device {device}')
 
         net.to(device=device)
         net.load_state_dict(torch.load(MODELPATH, map_location=device))
+
+        self.LABEL_STUDIO_HOST = os.getenv('LABEL_STUDIO_URL', 'http://localhost:8080')
+        self.LABEL_STUDIO_API_KEY = os.getenv('LABEL_STUDIO_API_KEY')
+
+        self.set("model_version", f'{self.__class__.__name__}-v0.0.1')
 
         logging.info('Model loaded!')
         self.net=net
@@ -116,6 +287,7 @@ class NewModel(LabelStudioMLBase):
 
 
         # mm = (mm > 128).astype(np.uint8) * 255
+        # mm=np.where(mm > 127, 255, 0)
         rle = brush.mask2rle(mm)
 
         selected_label='Seam'
@@ -160,9 +332,30 @@ class NewModel(LabelStudioMLBase):
         # images = ...
         # masks = ...
         print(f'data: {data}')
-        
+
         return images, masks
 
+    def rle_decode(self, rle_data, shape):
+        """
+        将RLE数据解码为NumPy数组
+
+        Args:
+            rle_data: RLE数据，列表或数组形式
+            shape: 原始图像的形状
+
+        Returns:
+            mask: 解码后的掩码，NumPy数组
+        """
+
+        mask = np.zeros(shape, dtype=np.uint8)
+        start = 0
+        for i in range(0, len(rle_data), 2):
+            start = rle_data[i]
+            length = rle_data[i+1]
+            mask[start : start + length] = 1
+        return mask
+
+    
     def fit(self, event, data, **kwargs):
         """
         This method is called each time an annotation is created or updated
@@ -179,24 +372,67 @@ class NewModel(LabelStudioMLBase):
         print(f'Old data: {old_data}')
         print(f'Old model version: {old_model_version}')
 
-        images, masks = self.load_data(data)
+        # api_url = 'http://localhost:8080/api/projects/1/tasks'
+        # token = 'afcd5aaccf53e3d45e59623c9ecb86b37cb3117e'
+
+        # headers = {'Authorization': f'Token {token}'}
+        # response = requests.get(api_url, headers=headers)
+        # print('---------',response)
+
+        # If the response is JSON, parse it into a Python object
+        # json_data = response.json()
+        # print("JSON data:", json_data)
+
+        # images, masks = self.load_data(data)
 
         # Train the U-Net model (replace with your training loop)
-        if event == 'START_TRAINING' or (old_data != 'd8-31' or old_model_version != '0.0.2'):
-            model = UNet(in_channels=3, out_channels=1)  # Adjust channels based on your data
-            # Define optimizer, loss function, hyperparameters (e.g., learning rate)
-            optimizer = torch.optim.Adam(model.parameters())
-            criterion = torch.nn.BCEWithLogitsLoss()
-            num_epochs = 10  # Adjust training epochs as needed
+        if event == 'START_TRAINING':
+            logger.info("Fitting model")
 
-            for epoch in range(num_epochs):
-                # Train loop logic (forward pass, loss calculation, backpropagation)
-                for image, mask in zip(images, masks):
-                    # ...
+            # download annotated tasks from Label Studio
+            ls = label_studio_sdk.Client(self.LABEL_STUDIO_HOST, self.LABEL_STUDIO_API_KEY)
+            project = ls.get_project(id=self.project_id)
+            tasks = project.get_labeled_tasks()
 
-                # Update model version and data information after training
-                self.set('model_version', '0.0.3')  # Update with actual new version
-                self.set('my_data', 'latest')
+            logger.info(f"Downloaded {len(tasks)} labeled tasks from Label Studio")
+
+            images=[]
+            masks=[]
+            for task in tasks:
+                for annotation in task['annotations']:
+                    if not annotation.get('result') or annotation.get('skipped') or annotation.get('was_cancelled'):
+                        continue
+
+                    path = self.get_local_path(task['data']['image'], task_id=task['id'])
+                    image = Image.open(path)
+                    images.append(image)
+
+                    res = task['annotations'][0]['result'][0]
+                    # image.save('test.jpg')
+                    width = res['original_width']
+                    height = res['original_height']
+                    rle = res['value']['rle']
+
+                    # 示例RLE数据
+                    shape = (width, height)  # 图像形状
+
+                    # 解码RLE
+                    mask = brush.decode_rle(rle)
+                    mask = np.reshape(mask, [150, 150, 4])[:, :, 3]
+                    masks.append(Image.fromarray(mask/255))
+
+                    # # 创建PIL图像
+                    # pil_image = Image.fromarray(mask, mode='L')
+                    # # 保存为JPEG
+                    # pil_image.save('masks/mask'+str(task['id'])+'.jpg')
+            device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+            net = UNet(n_channels=3, n_classes=2, bilinear=False)
+            net.to(device=device)
+            train_net(images,masks,net,device)
+
+        # Update model version and data information after training
+        # self.set('model_version', '0.0.3')  # Update with actual new version
+        # self.set('my_data', 'latest')
 
         print(f'Training completed (if applicable) for event: {event}')
 
@@ -205,9 +441,6 @@ class NewModel(LabelStudioMLBase):
         # self.set('model_version', '0.0.2')
         # print(f'New data: {self.get("my_data")}')
         # print(f'New model version: {self.get("model_version")}')
-
-        print(f'event: {event}')
-
 
         print('fit() completed successfully.')
 
